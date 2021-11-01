@@ -7,10 +7,18 @@ import ListsHeader from './components/ListsHeader'
 import ListsForm from './components/ListsForm'
 import AllLists from './components/AllLists'
 
+// APP STRUCTURE ( 2 cards - (All Lists and Task Lists))
+// 1. Input fields - on Listform and Tasks TaskForm - input and button
+// 2. Edit and Delete Items - on List and All Lists items rendered
+// 3. Marking as Completed - on each List items rendered - cross out effect and property change on Local Storage
+// 4. Responsive - Media Queries on App.css
+// 5. User can create multiple Lists - To do List will only appear once user makes a list line 101 on App.js
+// 6. Local storage is saving All Lists and To do Lists on browser refresh on App.js
+
 const App = () => {
+  // Local Storage
   const initialState = JSON.parse(localStorage.getItem('tasks')) || []
   const initialListState = JSON.parse(localStorage.getItem('listNames')) || []
-  // localStorage.getItem('tasks', JSON.stringify(tasks))
 
   // For Lists - Name of the List
   const [listInput, setListInput] = useState('')
@@ -24,11 +32,10 @@ const App = () => {
   const [editTask, setEditTask] = useState(null)
   const [currentTasks, setCurrentTasks] = useState([])
 
+  // Storing Lists and Tasks
   useEffect(() => {
-    console.log(tasks)
     localStorage.setItem('tasks', JSON.stringify(tasks))
     updateCurrentTasks()
-    console.log('hello')
   }, [tasks])
 
   useEffect(() => {
@@ -41,14 +48,11 @@ const App = () => {
     }
   }, [listNames])
 
+  // Update Lists
   const updateCurrentTasks = () => {
-    console.log(currentList)
     if (currentList?.id) {
-      console.log(tasks)
       const filterTasks = tasks.filter((x) => {
-        // console.log(currentList)
         if (x.listId === currentList.id) {
-          console.log(x)
           return true
         }
         return false
@@ -65,12 +69,10 @@ const App = () => {
 
   const listClick = (clickedList) => {
     setCurrentList(clickedList)
-    console.log(clickedList)
   }
 
   return (
     <div className='container'>
-      {/* All My Lists */}
       <div className='listsAndTasks'>
         <div className='card'>
           <div>
@@ -95,6 +97,7 @@ const App = () => {
             />
           </div>
         </div>
+        {/* only show to do list if a main list is made */}
         {currentList && (
           <div className='card'>
             <div>

@@ -1,8 +1,11 @@
 /* GLOBAL STYLES */
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@100;200;300;400;500;600;700;800&display=swap');
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Sora', sans-serif;
 }
 
 .container {
@@ -11,16 +14,18 @@
   align-items: center;
   width: 100%;
   min-height: 100vh;
-  background: teal;
+  background-color: #d2232a;
+  background-image: linear-gradient(62deg, #d2232a 0%, #e0c3fc 100%);
 }
 
 .card {
-  background-color: rgb(5, 63, 63);
-  min-width: 300px;
+  background-color: #f7f7f7;
+  min-width: 275px;
   min-height: 350px;
   padding: 20px;
   border-radius: 10px;
-  box-shadow: 2px 2px 2px black;
+  box-shadow: 0px 0px 2px hsla(0deg, 0, 0, 0.2);
+  border: 4px solid black;
   margin-bottom: 10px;
   margin: 20px;
 }
@@ -30,22 +35,22 @@
   flex-wrap: wrap;
   justify-content: space-evenly;
 }
-
+/* CARD TITLES */
 .header h1 {
-  color: white;
+  color: black;
   text-align: center;
   margin: 20px 0;
 }
 /* USERS INPUT */
 .todoInput {
   outline: none;
-  width: 300px;
+  width: 250px;
   padding: 10px;
   margin-right: 20px;
   font-size: 15px;
   color: black;
   background-color: white;
-  border: none;
+  border: 2px solid black;
   border-radius: 20px;
 }
 
@@ -58,7 +63,7 @@ button:focus {
 .listItem {
   display: flex;
   margin: 20px 0;
-  border: 1px solid white;
+  border: 2px solid black;
   border-radius: 5px;
   padding: 10px;
   max-height: 40px;
@@ -68,7 +73,7 @@ button:focus {
 .listNameItem {
   display: flex;
   margin: 20px 0;
-  border-bottom: 2px solid white;
+  border-bottom: 2px solid black;
   padding: 10px;
   max-height: 40px;
   justify-content: space-between;
@@ -80,15 +85,10 @@ button:focus {
   padding: 8px;
   font-size: 15px;
   border: 0;
-  background-color: teal;
+  background-color: rgb(26, 137, 23);
   cursor: pointer;
   color: white;
   border-radius: 20px;
-}
-
-.listButton {
-  background-color: aqua;
-  background: red;
 }
 
 .editButton,
@@ -103,7 +103,7 @@ button:focus {
 }
 
 .completeButton {
-  color: green;
+  color: rgb(26, 137, 23);
   margin-right: 10px;
 }
 
@@ -113,7 +113,7 @@ button:focus {
 }
 
 .deleteButton {
-  color: red;
+  color: rgb(205, 38, 44);
 }
 
 input:hover {
@@ -121,21 +121,31 @@ input:hover {
   cursor: pointer;
 }
 
-/* cross out effect */
+/* CROSS OUT EFFECT */
 .complete {
   text-decoration: solid;
   text-decoration: line-through;
-  text-decoration-color: white;
+  text-decoration-color: black;
   opacity: 0.7;
 }
 
-/* list item displayed once added*/
+/* LIST ITEM*/
 .itemText {
   width: auto;
   background-color: transparent;
   border: none;
-  color: white;
+  color: black;
   font-size: 15px;
   padding-left: 10px;
   margin-right: 10px;
+}
+
+/* MEDIA QUERIES */
+@media only screen and (max-width: 600px) {
+  form {
+    text-align: center;
+  }
+  .addButton {
+    margin-top: 20px;
+  }
 }

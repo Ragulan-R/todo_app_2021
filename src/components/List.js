@@ -1,5 +1,7 @@
 import React, { useEffect } from 'react'
 
+// THE TODO/TASK LIST ITEMS
+
 const List = ({ tasks, setTasks, setEditTask }) => {
   const handleDelete = ({ id }) => {
     setTasks(tasks.filter((task) => task.id !== id))

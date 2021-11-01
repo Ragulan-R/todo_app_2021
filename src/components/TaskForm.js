@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react'
 import { v4 as uuidv4 } from 'uuid'
 
+// TASK OR TODOLIST INPUT AND BUTTON
+
 const TaskForm = ({
   input,
   setInput,
@@ -23,7 +25,6 @@ const TaskForm = ({
   }
 
   const updateTask = (title, id, completed) => {
-    console.log(currentList)
     const newTask = tasks.map((task) =>
       task.id === id ? { title, id, completed, listId: currentList.id } : task
     )
@@ -35,7 +36,6 @@ const TaskForm = ({
     event.preventDefault()
 
     if (!editTask) {
-      console.log(currentList.id)
       setTasks([
         ...tasks,
         {

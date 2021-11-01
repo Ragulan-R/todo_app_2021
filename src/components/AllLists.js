@@ -1,5 +1,7 @@
 import React from 'react'
 
+// LIST OF ALL THE LISTS
+
 const AllLists = ({ listClick, listNames, setListNames, setEditListName }) => {
   // delete list name
   const handleListNameDelete = ({ id }) => {

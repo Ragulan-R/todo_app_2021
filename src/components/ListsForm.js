@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react'
 import { v4 as uuidv4 } from 'uuid'
 
+// ALL LISTS INPUT AND BUTTON
+
 const ListsForm = ({
   listInput,
   setListInput,
@@ -56,7 +58,7 @@ const ListsForm = ({
         onChange={onListInputChange}
       />
       <button className='addButton' type='submit'>
-        {editListName ? 'Update Name' : 'Add'}
+        {editListName ? 'Update' : 'Add'}
       </button>
     </form>
   )
