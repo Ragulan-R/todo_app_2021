@@ -42,7 +42,7 @@ const App = () => {
     localStorage.setItem('listNames', JSON.stringify(listNames))
     if (currentList?.id) {
       const x = listNames.filter((listName) => listName.id !== currentList.id)
-      if (x.length == 0) {
+      if (x.length === 0) {
         setCurrentList(null)
       }
     }

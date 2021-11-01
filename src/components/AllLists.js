@@ -8,16 +8,16 @@ const AllLists = ({ listClick, listNames, setListNames, setEditListName }) => {
     setListNames(listNames.filter((listName) => listName.id !== id))
   }
   // completed list
-  const handleListNameComplete = (listName) => {
-    setListNames(
-      listNames.map((item) => {
-        if (item.id === listName.id) {
-          return { ...item, completed: !listName.completed }
-        }
-        return item
-      })
-    )
-  }
+  // const handleListNameComplete = (listName) => {
+  //   setListNames(
+  //     listNames.map((item) => {
+  //       if (item.id === listName.id) {
+  //         return { ...item, completed: !listName.completed }
+  //       }
+  //       return item
+  //     })
+  //   )
+  // }
   // edit list
   const handleListNameEdit = ({ id }) => {
     const findListName = listNames.find((listName) => listName.id === id)
