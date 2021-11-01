@@ -48,37 +48,55 @@ const App = () => {
     }
   }, [tasks, currentList])
 
+  // const x = listNames.filter((listName) => listName.id != currentList.id)
+
   useEffect(() => {
+    console.log('works')
     localStorage.setItem('listNames', JSON.stringify(listNames))
     if (currentList?.id) {
-      const x = listNames.filter((listName) => listName.id !== currentList.id)
-      if (x.length === 0) {
+      console.log(currentList?.id)
+      console.log(listNames)
+      let x = false
+      for (let index = 0; index < listNames.length; index++) {
+        console.log(listNames[index] === currentList)
+        if (listNames[index].id === currentList.id) {
+          x = true
+          console.log(listNames[index])
+          console.log(currentList)
+          setCurrentList(listNames[index])
+          break
+        }
+      }
+      if (x === false) {
+        console.log(x)
         setCurrentList(null)
       }
     }
   }, [listNames, currentList])
 
   // Update Lists
-  // const updateCurrentTasks = () => {
-  //   if (currentList?.id) {
-  //     const filterTasks = tasks.filter((x) => {
-  //       if (x.listId === currentList.id) {
-  //         return true
-  //       }
-  //       return false
-  //     })
-  //     setCurrentTasks(filterTasks)
-  //   } else {
-  //     setCurrentTasks([])
-  //   }
-  // }
+  const updateCurrentTasks = () => {
+    if (currentList?.id) {
+      const filterTasks = tasks.filter((x) => {
+        if (x.listId === currentList.id) {
+          return true
+        }
+        return false
+      })
+      setCurrentTasks(filterTasks)
+    } else {
+      setCurrentTasks([])
+    }
+  }
 
-  // useEffect(() => {
-  //   updateCurrentTasks()
-  // }, [currentList])
+  useEffect(() => {
+    console.log(currentList)
+  }, [currentList])
 
   const listClick = (clickedList) => {
+    console.log(clickedList)
     setCurrentList(clickedList)
+    updateCurrentTasks()
   }
 
   return (

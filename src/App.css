@@ -20,8 +20,8 @@
 
 .card {
   background-color: #f7f7f7;
-  min-width: 275px;
-  min-height: 350px;
+  min-width: 400px;
+  min-height: 450px;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0px 0px 2px hsla(0deg, 0, 0, 0.2);
@@ -44,7 +44,7 @@
 /* USERS INPUT */
 .todoInput {
   outline: none;
-  width: 250px;
+  width: 300px;
   padding: 10px;
   margin-right: 20px;
   font-size: 15px;
@@ -80,6 +80,7 @@ button:focus {
 }
 
 /* BUTTONS */
+
 .addButton {
   width: 80px;
   padding: 8px;
@@ -116,7 +117,8 @@ button:focus {
   color: rgb(205, 38, 44);
 }
 
-input:hover {
+input:hover,
+button:hover {
   opacity: 0.8;
   cursor: pointer;
 }
