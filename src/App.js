@@ -35,21 +35,6 @@ const App = () => {
   // Storing Lists and Tasks
   useEffect(() => {
     localStorage.setItem('tasks', JSON.stringify(tasks))
-    updateCurrentTasks()
-  }, [tasks])
-
-  useEffect(() => {
-    localStorage.setItem('listNames', JSON.stringify(listNames))
-    if (currentList?.id) {
-      const x = listNames.filter((listName) => listName.id !== currentList.id)
-      if (x.length === 0) {
-        setCurrentList(null)
-      }
-    }
-  }, [listNames])
-
-  // Update Lists
-  const updateCurrentTasks = () => {
     if (currentList?.id) {
       const filterTasks = tasks.filter((x) => {
         if (x.listId === currentList.id) {
@@ -61,11 +46,36 @@ const App = () => {
     } else {
       setCurrentTasks([])
     }
-  }
+  }, [tasks, currentList])
 
   useEffect(() => {
-    updateCurrentTasks()
-  }, [currentList])
+    localStorage.setItem('listNames', JSON.stringify(listNames))
+    if (currentList?.id) {
+      const x = listNames.filter((listName) => listName.id !== currentList.id)
+      if (x.length === 0) {
+        setCurrentList(null)
+      }
+    }
+  }, [listNames, currentList])
+
+  // Update Lists
+  // const updateCurrentTasks = () => {
+  //   if (currentList?.id) {
+  //     const filterTasks = tasks.filter((x) => {
+  //       if (x.listId === currentList.id) {
+  //         return true
+  //       }
+  //       return false
+  //     })
+  //     setCurrentTasks(filterTasks)
+  //   } else {
+  //     setCurrentTasks([])
+  //   }
+  // }
+
+  // useEffect(() => {
+  //   updateCurrentTasks()
+  // }, [currentList])
 
   const listClick = (clickedList) => {
     setCurrentList(clickedList)
