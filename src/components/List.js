@@ -33,15 +33,24 @@ const List = ({ tasks, setTasks, setEditTask }) => {
           />
           <div>
             <button
+              aria-label='complete button'
               className='completeButton'
               onClick={() => handleComplete(task)}
             >
               <i className='fa fa-check-circle'></i>
             </button>
-            <button className='editButton' onClick={() => handleEdit(task)}>
+            <button
+              aria-label='edit button'
+              className='editButton'
+              onClick={() => handleEdit(task)}
+            >
               <i className='fa fa-edit'></i>
             </button>
-            <button className='deleteButton' onClick={() => handleDelete(task)}>
+            <button
+              aria-label='delete button'
+              className='deleteButton'
+              onClick={() => handleDelete(task)}
+            >
               <i className='fa fa-trash'></i>
             </button>
           </div>

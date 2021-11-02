@@ -57,7 +57,7 @@ const ListsForm = ({
         required
         onChange={onListInputChange}
       />
-      <button className='addButton' type='submit'>
+      <button aria-label='add button' className='addButton' type='submit'>
         {editListName ? 'Update' : 'Add'}
       </button>
     </form>

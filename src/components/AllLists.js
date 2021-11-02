@@ -44,12 +44,14 @@ const AllLists = ({ listClick, listNames, setListNames, setEditListName }) => {
           />
           <div>
             <button
+              aria-label='edit button'
               className='editButton'
               onClick={() => handleListNameEdit(listName)}
             >
               <i className='fa fa-edit'></i>
             </button>
             <button
+              aria-label='delete button'
               className='deleteButton'
               onClick={() => handleListNameDelete(listName)}
             >

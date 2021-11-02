@@ -61,7 +61,7 @@ const TaskForm = ({
         required
         onChange={onInputChange}
       />
-      <button className='addButton' type='submit'>
+      <button aria-label='add button' className='addButton' type='submit'>
         {editTask ? 'Update' : 'Add'}
       </button>
     </form>
